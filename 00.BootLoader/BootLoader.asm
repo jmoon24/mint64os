@@ -1,7 +1,7 @@
-# file		BootLoader.asm
-# date		2024-09-07
-# author	jmoon
-# brief		MINT64 OS의 부트 로더 소스 파일
+; file		BootLoader.asm
+; date		2024-09-07
+; author	jmoon
+; brief		MINT64 OS의 부트 로더 소스 파일
 
 [ORG 0x00]          ; 코드의 시작 어드레스를 0x00으로 설정
 [BITS 16]           ; 이하의 코드는 16비트 코드로 설정
