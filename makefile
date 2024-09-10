@@ -1,5 +1,5 @@
 # file		makefile
-# date		2024-09-07
+# date		2024-09-10
 # author	jmoon
 # brief		OS 이미지를 빌드하기 위한 make 파일
 
@@ -18,19 +18,32 @@ BootLoader:
 	@echo =============== Build Complete ===============
 	@echo 
 
-# 디스크 이미지 빌드	
-Disk.img: 00.BootLoader/BootLoader.bin
+# 가상 OS 이미지 빌드를 위해 보호 모드 커널 디렉터리에서 make 실행
+Kernel32:
+	@echo 
+	@echo ============== Build 32bit Kernel ===============
+	@echo 
+	
+	make -C 01.Kernel32
+
+	@echo 
+	@echo =============== Build Complete ===============
+	@echo 
+
+# OS 이미지 생성
+Disk.img: BootLoader Kernel32
 	@echo 
 	@echo =========== Disk Image Build Start ===========
 	@echo 
 
-	cp 00.BootLoader/BootLoader.bin Disk.img
+	cat 00.BootLoader/BootLoader.bin 01.Kernel32/VirtualOS.bin > Disk.img
 
 	@echo 
 	@echo ============= All Build Complete =============
-	@echo
-
+	@echo 
+	
 # 소스 파일을 제외한 나머지 파일 정리	
 clean:
 	make -C 00.BootLoader clean
-	rm -f Disk.img
+	make -C 01.Kernel32 clean
+	rm -f Disk.img	
