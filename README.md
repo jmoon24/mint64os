@@ -56,8 +56,18 @@
 - 원본 소스코드 (GIT): [저자 공식 Github Repo](https://github.com/kkamagui/mint64os)
 
 # 변경 및 수정 내역
-- 120p. qemu-x86_64.bat 파일의 내용 (2024-09-07)
+- p. 120 : qemu-x86_64.bat 파일의 내용 (2024-09-07)
   - macOS에 맞게 쉘 스크립트로 수정
   - 불필요 옵션 제거 및 deprecated 옵션 수정
   - 상세 내용은 qemu.sh 파일 참조
-
+- p. 154 : BootLoader.asm 파일의 내용 (2024-09-10)
+  - READDATA 라벨 내부의 마지막 섹터까지 읽었는지 판단하는 부분에서 원본 소스 코드는
+    ``` 
+    cmp al, 19
+    ```
+    이지만 qemu 에뮬레이터의 플로피디스크가 1.44 MB FD에서 2.88 MB FD로 변경되면서 트랙 당 섹터 개수가 18개에서 36개로 변경되었음. 따라서, 다음과 같이
+    ``` 
+    cmp al, 37
+    ```
+    변경해야함 (참고:[저자 웹페이지 게시판](http://jsandroidapp.cafe24.com/xe/development/12035))
+    
