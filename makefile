@@ -4,7 +4,7 @@
 # brief		OS 이미지를 빌드하기 위한 make 파일
 
 # 기본적으로 빌드를 수행할 목록
-all: BootLoader Disk.img
+all: BootLoader Kernel32 Disk.img
 
 # 부트 로더 빌드를 위해 부트 로더 디렉터리에서 make 실행
 BootLoader:
@@ -31,12 +31,15 @@ Kernel32:
 	@echo 
 
 # OS 이미지 생성
-Disk.img: BootLoader Kernel32
+
+# $^ 매크로는 Dependency(:의 오른쪽)의 전체 파일을 의미하는 매크로
+
+Disk.img: 00.BootLoader/BootLoader.bin 01.Kernel32/Kernel32.bin
 	@echo 
 	@echo =========== Disk Image Build Start ===========
 	@echo 
 
-	cat 00.BootLoader/BootLoader.bin 01.Kernel32/VirtualOS.bin > Disk.img
+	cat $^ > Disk.img
 
 	@echo 
 	@echo ============= All Build Complete =============
