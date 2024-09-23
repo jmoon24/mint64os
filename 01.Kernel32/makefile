@@ -1,6 +1,7 @@
 # file		makefile
 # date		2024-09-13
-# author	jmoon 
+# author 	kkamagui
+# editor	jmoon
 # brief		가상 OS 이미지를 빌드하기 위한 make 파일
 
 # 기본적으로 빌드를 수행할 목록

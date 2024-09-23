@@ -1,6 +1,8 @@
 ; file      EntryPoint.s
 ; date      2024-09-13
-; author    jmoon
+; author    kkamagui 
+;           Copyright(c)2008 All rights reserved by kkamagui
+; editor    jmoon
 ; brief     보호 모드 커널 엔트리 포인트에 관련된 소스 파일
 
 [ORG 0x00]          ; 코드의 시작 어드레스를 0x00으로 설정

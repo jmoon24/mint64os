@@ -1,6 +1,7 @@
 # file		makefile
 # date		2024-09-07
-# author	jmoon 
+# author 	kkamagui
+# editor	jmoon 
 # brief		부트 로더를 빌드하기 위한 make 파일
 
 # 기본적으로 빌드를 수행할 목록
