@@ -14,9 +14,9 @@
 - [macos-cross-toolchains](https://github.com/messense/homebrew-macos-cross-toolchains)
   ```
   brew tap messense/macos-cross-toolchains
-  # 64bit 컴파일러
+  # 64bit 크로스 컴파일러 및 툴체인
   brew install x86_64-unknown-linux-gnu
-  # 32bit 컴파일러  
+  # 32bit 크로스 컴파일러 및 툴체인
   brew install i686-unknown-linux-gnu
 
   # 컴파일 예시
@@ -70,4 +70,14 @@
     cmp al, 37
     ```
     변경해야함 (참고:[저자 웹페이지 게시판](http://jsandroidapp.cafe24.com/xe/development/12035))
+- p. 219 - 220 : 새롭게 작성된 모호 모드 커널의 makefile (2024-09-23)
+  - 32bit 크로스컴파일러와 함께 설치된 링커를 이용
+  - 불필요 옵션 (-melf_i386) 제거
+  - 상세 내용은 01.Kernel32/makefile 참조
+- p. 223 - 227 : ImageMacker.c 파일 내용 (2024-09-23)
+  - 헤더파일 수정
+  - O_BINARY 무시하도록 수정
+  - 형식지정자 경고 수정
+  - 상세 내용은 04.Utility/00.ImageMaker/ImageMaker.c 참조
+  - 참고 : [저자 웹페이지 질의 응답](http://jsandroidapp.cafe24.com/xe/qna/941#comment_5936)
     
