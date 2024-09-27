@@ -1,6 +1,9 @@
 /* 섹션 재배치로 인해 이동한 부분의 원래 위치를 표시하기 위해,
   원래 코드를 남겨두고 주석처리를 하였으나,
   원래 코드와 함께 있던 주석이 ld에서 오류를 일으켜, 주석을 //로 변경함 */
+/* 링커 스크립트(elf_i386.x) 원본 위치는 다음과 같음
+  /opt/homebrew/Cellar/i686-unknown-linux-gnu/13.2.0/toolchain/i686-unknown-linux-gnu/lib/ldscripts/elf_i386.x
+*/
 
 /* Default linker script, for normal executables */
 /* Copyright (C) 2014-2023 Free Software Foundation, Inc.
